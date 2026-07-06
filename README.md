@@ -3,8 +3,11 @@
 
 ## 架构
 5级流水线：IF / ID / EX / MEM / WB
+
 哈佛结构：指令存储器与数据存储器独立
+
 数据冒险：Forwarding + Load-Use Stall
+
 控制冒险：Flush
 
 ## 指令支持
