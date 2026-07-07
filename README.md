@@ -19,35 +19,24 @@
 ## 指令支持
 
 R型：add、sub、and、or、slt
-
 I型：addi、andi、ori、slti
-
 访存：lw、sw
-
 分支：beq、bne
-
 跳转：jal、jalr
-
 立即数：lui
 
 ## 流水线阶段
 
 IF：取指，从imem读指令，PC更新
-
 ID：译码，读寄存器堆，控制单元生成信号
-
 EX：执行，ALU运算，计算分支跳转目标
-
 MEM：访存，dmem读写
-
 WB：写回，寄存器堆写入
 
 ## 关键机制
 
 Forwarding：EX级需要数据时，从MEM级或WB级直接前递，不等待写回
-
 Load-Use Stall：lw指令后紧跟需要该数据的指令，stall一周期
-
 Branch Flush：branch/jump在EX级判断，flush已取的后续指令
 
 ## 验证方法
@@ -61,35 +50,20 @@ Branch Flush：branch/jump在EX级判断，flush已取的后续指令
 ## 文件说明
 
 pc.v：程序计数器，支持stall和跳转
-
 imem.v：指令存储器，hex文件初始化
-
 IF_ID.v：IF/ID流水线寄存器，stall/flush
-
 decoder.v：指令译码，拆分字段和立即数
-
 regfile.v：寄存器堆，先写后读
-
 control.v：控制单元，生成ALU操作和控制信号
-
 hazard_detection.v：冒险检测，Load-Use stall
-
 ID_EX.v：ID/EX流水线寄存器，stall/flush
-
 forwarding.v：前递单元，MEM/WB→EX
-
 alu.v：算术逻辑单元，加减与或比较
-
 EX_MEM.v：EX/MEM流水线寄存器
-
 dmem.v：数据存储器，时序写组合读
-
 MEM_WB.v：MEM/WB流水线寄存器，时序逻辑
-
 top.v：顶层模块，连接所有阶段
-
 top_tb.v：仿真测试平台
-
 program.hex：测试程序，16条指令
 
 ## 仿真结果
